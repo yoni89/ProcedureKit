@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-public protocol PresentingViewController: class {
+public protocol PresentingViewController: AnyObject {
 
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
 
@@ -18,7 +18,7 @@ public protocol PresentingViewController: class {
 
 extension UIViewController: PresentingViewController { }
 
-public protocol DismissingViewController: class {
+public protocol DismissingViewController: AnyObject {
     var didDismissViewControllerBlock: () -> Void { get set }
 }
 

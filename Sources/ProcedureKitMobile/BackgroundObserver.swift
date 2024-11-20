@@ -11,12 +11,17 @@ internal protocol BackgroundTaskApplicationProtocol {
 
     var applicationState: UIApplication.State { get }
 
-    func beginBackgroundTask(withName taskName: String?, expirationHandler handler: (() -> Swift.Void)?) -> UIBackgroundTaskIdentifier
+    func beginBackgroundTaskNew(withName taskName: String?, expirationHandler handler: (() -> Swift.Void)?) -> UIBackgroundTaskIdentifier
 
     func endBackgroundTask(_ identifier: UIBackgroundTaskIdentifier)
+
 }
 
-extension UIApplication: BackgroundTaskApplicationProtocol { }
+extension UIApplication: BackgroundTaskApplicationProtocol {
+    func beginBackgroundTaskNew(withName taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier {
+        return beginBackgroundTask(withName: taskName, expirationHandler: handler)
+    }
+}
 
 public extension ProcedureKitError {
 
@@ -402,7 +407,7 @@ internal class BackgroundManager {
         }
 
         let createdIdentifier = identifier.write { ward -> UIBackgroundTaskIdentifier in
-            ward = application.beginBackgroundTask(withName: BackgroundManager.backgroundTaskName(for: procedure), expirationHandler: finalExpirationHandler)
+            ward = application.beginBackgroundTaskNew(withName: BackgroundManager.backgroundTaskName(for: procedure), expirationHandler: finalExpirationHandler)
             return ward
         }
 

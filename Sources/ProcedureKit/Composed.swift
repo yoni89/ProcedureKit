@@ -19,8 +19,6 @@ import Dispatch
  it's part of another framework for which you do not have the source code, ComposedProcedure can
  be used.
 
- - note: CloudKitProcedure internally uses a ComposedProcedure subclass (`CKProcedure`) to wrap
- CKOperation subclasses.
  */
 open class ComposedProcedure<T: Operation>: GroupProcedure {
 

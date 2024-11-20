@@ -362,7 +362,7 @@ open class Procedure: Operation, ProcedureProtocol {
     /// An executing Procedure is responsible for checking its own cancellation status,
     /// and stopping and moving to the finished state as quickly as possible.
     ///
-    /// Built-in Procedure subclasses in ProcedureKit (like GroupProcedure and CloudKitProcedure)
+    /// Built-in Procedure subclasses in ProcedureKit (like GroupProcedure )
     /// handle responding to cancellation as appropriate.
     ///
     final public override var isCancelled: Bool {

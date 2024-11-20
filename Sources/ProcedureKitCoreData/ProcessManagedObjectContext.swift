@@ -11,7 +11,7 @@ import Foundation
 
 import CoreData
 
-protocol ManagedObjectContextProcessing: class {
+protocol ManagedObjectContextProcessing: AnyObject {
 
     var managedObjectContext: Pending<NSManagedObjectContext> { get set }
 }

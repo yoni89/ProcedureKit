@@ -72,7 +72,7 @@ class TestableUIApplication: BackgroundTaskApplicationProtocol {
     }
 
     /// May be called from any thread.
-    func beginBackgroundTask(withName taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier {
+    func beginBackgroundTaskNew(withName taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier {
         let identifier: UIBackgroundTaskIdentifier = stateLock.withCriticalScope {
             _backgroundTasks.append((taskName, handler, .running))
             guard !_backgroundExecutionDisabled else {
