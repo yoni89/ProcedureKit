@@ -1,20 +1,20 @@
 Pod::Spec.new do |s|
-  s.name              = "ProcedureKit"
-  s.version           = "5.2.0"
+  s.name              = "ProcedureKitNew"
+  s.version           = "6.0.0"
   s.summary           = "Advanced Operations in Swift."
-  s.homepage          = "https://github.com/ProcedureKit/ProcedureKit"
+  s.homepage          = "https://github.com/yoni89/ProcedureKit.git"
   s.license           = 'MIT'
-  s.authors           = { "ProcedureKit Core Contributors" => "hello@procedure.kit.run" }
-  s.source            = { :git => "https://github.com/ProcedureKit/ProcedureKit.git", :tag => s.version.to_s }
-  s.module_name       = 'ProcedureKit'
+  s.authors           = { "ProcedureKit Core Contributors fox xcode2" => "yonik@gini-apps.com" }
+  s.source            = { :git => "https://github.com/yoni89/ProcedureKit.git", :tag => s.version.to_s }
+  s.module_name       = 'ProcedureKitNew'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '13.0'
   s.watchos.deployment_target = '3.0'
   s.tvos.deployment_target = '9.2'
   s.osx.deployment_target = '10.11'
   
   # Ensure the correct version of Swift is used
-  s.swift_version = '5.0'
+  s.swift_version = '5.9'
 
   # Default spec is 'Standard'
   s.default_subspec = 'Standard'
@@ -37,13 +37,6 @@ Pod::Spec.new do |s|
   s.subspec 'Network' do |ss|
   	ss.dependency 'ProcedureKit/Standard'
   	ss.source_files = ['Sources/ProcedureKitNetwork']
-  end
-
-  # ProcedureKitCloud
-  s.subspec 'Cloud' do |ss|
-  	ss.dependency 'ProcedureKit/Standard'
-  	ss.frameworks = 'CloudKit'
-  	ss.source_files = ['Sources/ProcedureKitCloud/**/*']
   end
 
   # ProcedureKitCoreData
@@ -70,7 +63,7 @@ Pod::Spec.new do |s|
 
   # ProcedureKitMobile
   s.subspec 'Mobile' do |ss|
-    ss.platforms = { :ios => "9.0" }
+    ss.platforms = { :ios => "13.0" }
   	ss.dependency 'ProcedureKit/Standard'
   	ss.source_files = ['Sources/ProcedureKitMobile']
   end
